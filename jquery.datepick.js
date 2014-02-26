@@ -1,8 +1,8 @@
 ﻿/* http://keith-wood.name/datepick.html
    Date picker for jQuery v4.1.0.
    Written by Keith Wood (kbwood{at}iinet.com.au) February 2010.
-   Dual licensed under the GPL (http://dev.jquery.com/browser/trunk/jquery/GPL-LICENSE.txt) and 
-   MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. 
+   Dual licensed under the GPL (http://dev.jquery.com/browser/trunk/jquery/GPL-LICENSE.txt) and
+   MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses.
    Please attribute the author if you use it. */
 
 (function($) { // Hide scope, no $ conflict
@@ -110,7 +110,7 @@ $.extend(Datepicker.prototype, {
 	_curMonthClass: 'datepick-month-', // Marker for current month/year
 	_anyYearClass: 'datepick-any-year', // Marker for year direct input
 	_curDoWClass: 'datepick-dow-', // Marker for day of week
-	
+
 	commands: { // Command actions that may be added to a layout by name
 		// name: { // The command name, use '{button:name}' or '{link:name}' in layouts
 		//		text: '', // The field in the regional settings for the displayed text
@@ -1582,7 +1582,7 @@ $.extend(Datepicker.prototype, {
 			inst.prevDate = plugin.newDate(inst.drawDate);
 			var show = this._checkMinMax((year != null ?
 				plugin.newDate(year, month, 1) : plugin.today()), inst);
-			inst.drawDate = plugin.newDate(show.getFullYear(), show.getMonth() + 1, 
+			inst.drawDate = plugin.newDate(show.getFullYear(), show.getMonth() + 1,
 				(day != null ? day : Math.min(inst.drawDate.getDate(),
 				plugin.daysInMonth(show.getFullYear(), show.getMonth() + 1))));
 			this._update(target);
@@ -1671,6 +1671,9 @@ $.extend(Datepicker.prototype, {
 				this._update(target);
 			}
 			else {
+				// update the datepicker so the user sees the range that is selected, then
+				// continue with the normal flow of the plugin
+				this._update(target);
 				this._hidePlugin(target);
 			}
 		}
